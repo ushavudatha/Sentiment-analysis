@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>{{ title }} Sentiment Analysis</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <h1>Welcome To Sentiment Analyzer</h1>
+        <form method="POST">
+            <textarea name="text" placeholder="Say Something: ...." rows="10" cols="109"></textarea><br><br>
+
+            <input class="example_a" type="submit">
+        </form>
+        {% if ans=="Negative" %}
+        <div>
+            <h2>The Sentiment score of</h2> '{{ text }}' <h2>is <span style="color: red">{{ final }}</span> .<br> So, The sentiment sense of the given input is <span style="color: red">{{ ans }}</span></h2>
+			{% endif %}
+		</div>
+		{% if ans=="Positive" %}
+        <div>
+            <h2>The Sentiment score of</h2> '{{ text }}' <h2>is <span style="color: green">{{ final }}</span> .<br> So, The sentiment sense of the given input is <span style="color: green">{{ ans }}</span></h2>
+			{% endif %}
+		</div>
+		{% if ans=="Neutral" %}
+		<div>	
+            
+            	<h2>The Sentiment score of</h2> '{{ text }}' <h2>is <span style="color: blue">{{ final }}</span> .<br> So, The sentiment sense of the given input is <span style="color: blue">{{ ans }}</span></h2>
+            {% endif %}
+        </div>
+		
+		<div>
+			{% if ans=="Positive" %}
+				<img src="https://media.tenor.com/images/d7836701d959c528e61bf797182f6c71/tenor.gif" alt="Positive" style="width:150px;height:150px;">
+			{% endif %}	
+			{% if ans=="Negative" %}
+				<img src="https://media.tenor.com/images/3ef3153dcf281e60ac8ebad488449227/tenor.gif" alt="Negative" style="width:150px;height:150px;">
+			{% endif %}	
+			{% if ans=="Neutral" %}
+				<img src="https://media.tenor.com/images/a12c665cc65582405969bedb8787feeb/tenor.gif" alt="Neutral" style="width:150px;height:150px;">
+			{% endif %}
+			
+		</div>
+    </body>
+</html>
